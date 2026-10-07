@@ -1,0 +1,72 @@
+{
+  "experiment": "benchmark_datasheet",
+  "generated": "2026-07-31T23:29:50",
+  "title": "Benchmark \u2014 dual (synthetic + naturalistic + real-seeded)",
+  "question": "What does the released emergent-inconsistency benchmark contain?",
+  "config": {
+    "n_per_cell": 50,
+    "seed": 0,
+    "data_dir": "data/benchmark"
+  },
+  "summary": {
+    "variants": 3,
+    "total_cases": 1800
+  },
+  "tables": {
+    "Datasheet": [
+      {
+        "variant": "canonical",
+        "n_cases": 600,
+        "consistent": 300,
+        "inconsistent": 300,
+        "hop_counts": {
+          "2": 200,
+          "3": 200,
+          "5": 200
+        }
+      },
+      {
+        "variant": "paraphrase",
+        "n_cases": 600,
+        "consistent": 300,
+        "inconsistent": 300,
+        "hop_counts": {
+          "2": 200,
+          "3": 200,
+          "5": 200
+        }
+      },
+      {
+        "variant": "real_seeded",
+        "n_cases": 600,
+        "consistent": 300,
+        "inconsistent": 300,
+        "hop_counts": {
+          "2": 200,
+          "3": 200,
+          "5": 200
+        }
+      }
+    ],
+    "Exported files": [
+      {
+        "variant": "canonical",
+        "path": "data\\benchmark\\canonical.jsonl",
+        "n_cases": 600
+      },
+      {
+        "variant": "paraphrase",
+        "path": "data\\benchmark\\paraphrase.jsonl",
+        "n_cases": 600
+      },
+      {
+        "variant": "real_seeded",
+        "path": "data\\benchmark\\real_seeded.jsonl",
+        "n_cases": 600
+      }
+    ]
+  },
+  "notes": [
+    "real_seeded embeds synthetic contradiction cores among real document sentences; swap in your corpus via document_pool."
+  ]
+}

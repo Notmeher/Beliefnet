@@ -1,0 +1,49 @@
+{
+  "experiment": "exp_cost_comparison",
+  "generated": "2026-08-01T00:38:02",
+  "title": "Experiment \u2014 Cost / latency / certificate comparison",
+  "question": "Given a reasoning LLM can be accurate, what is BeliefNet's deployment advantage (speed + proof)?",
+  "config": {
+    "kappa": [
+      3,
+      5,
+      7
+    ],
+    "n_total": [
+      8
+    ],
+    "n_per_cell": 3,
+    "seed": 0,
+    "n_cases": 18
+  },
+  "summary": {
+    "belieftnet_speedup_vs_slowest_llm": "6193.1x",
+    "belieftnet_returns_proof": true,
+    "llm_returns_proof": false
+  },
+  "tables": {
+    "Per-decision cost / accuracy / certificate": [
+      {
+        "system": "BeliefNet (exact)",
+        "mean_latency_ms": 0.919,
+        "accuracy": 1.0,
+        "certificate": "yes (unsat core + repair)"
+      },
+      {
+        "system": "gpt4o judge",
+        "mean_latency_ms": 2267.0,
+        "accuracy": 0.7222,
+        "certificate": "no (opaque yes/no)"
+      },
+      {
+        "system": "gpt5 judge",
+        "mean_latency_ms": 5691.5,
+        "accuracy": 1.0,
+        "certificate": "no (opaque yes/no)"
+      }
+    ]
+  },
+  "notes": [
+    "The exact checker decides in ~microseconds and returns a human-checkable proof; the LLMs take seconds and return an opaque verdict. Accuracy parity (on clean text) makes cost + verifiability the differentiator."
+  ]
+}

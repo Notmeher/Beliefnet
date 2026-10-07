@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.venv/
+experiments/*/
+!experiments/.gitkeep
+reports/*/
+!reports/.gitkeep
+
+# Secrets — never commit
+.env
+*.env
+
+# Downloaded external datasets (re-downloadable; not redistributed here)
+data/scifact_dl/
+data/scifact/

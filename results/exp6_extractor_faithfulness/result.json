@@ -1,0 +1,51 @@
+{
+  "experiment": "exp6_extractor_faithfulness",
+  "generated": "2026-07-31T23:29:45",
+  "title": "Experiment 6 \u2014 Local-extractor faithfulness",
+  "question": "How faithfully does each extractor recover the oracle typed constraint graph (constraint-level micro F1)?",
+  "config": {
+    "kappa": [
+      2,
+      3,
+      5
+    ],
+    "n_total": [
+      6,
+      12
+    ],
+    "n_per_cell": 20,
+    "seed": 0
+  },
+  "summary": {
+    "n_cases": 240,
+    "rule_mean_f1": 1.0
+  },
+  "tables": {
+    "rule extractor \u2014 P/R/F1 by hop-count": [
+      {
+        "hop_count": 2,
+        "n_cases": 80,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      {
+        "hop_count": 3,
+        "n_cases": 80,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      {
+        "hop_count": 5,
+        "n_cases": 80,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    ]
+  },
+  "notes": [
+    "Perception is the bottleneck: end-to-end detection can only be as good as constraint-level extraction faithfulness."
+  ]
+}

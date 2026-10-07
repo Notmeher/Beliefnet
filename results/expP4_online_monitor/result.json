@@ -1,0 +1,48 @@
+{
+  "experiment": "expP4_online_monitor",
+  "generated": "2026-07-31T23:29:49",
+  "title": "Experiment P4 \u2014 Online BeliefMonitor (detect + localize)",
+  "question": "Streaming: does the monitor detect emergent inconsistency and flag the exact statement that closes it?",
+  "config": {
+    "kappa": [
+      2,
+      3,
+      5
+    ],
+    "n_total": [
+      6,
+      12
+    ],
+    "n_per_cell": 30,
+    "seed": 0
+  },
+  "summary": {
+    "n_cases": 360,
+    "overall_localization_acc": 1.0
+  },
+  "tables": {
+    "Detection + localization by hop-count": [
+      {
+        "hop_count": 2,
+        "n": 120,
+        "detection_auroc": 1.0,
+        "localization_acc": 1.0
+      },
+      {
+        "hop_count": 3,
+        "n": 120,
+        "detection_auroc": 1.0,
+        "localization_acc": 1.0
+      },
+      {
+        "hop_count": 5,
+        "n": 120,
+        "detection_auroc": 1.0,
+        "localization_acc": 1.0
+      }
+    ]
+  },
+  "notes": [
+    "The monitor flags the first statement that makes the accumulated belief set unsatisfiable -- runtime localization batch NLI cannot provide."
+  ]
+}

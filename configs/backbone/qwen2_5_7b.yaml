@@ -1,0 +1,10 @@
+# Frozen backbone for EEN-v1. Defaults target TITAN RTX (Turing, sm_75):
+# fp16 compute (no bf16) and SDPA attention (no FlashAttention-2).
+model_name: Qwen/Qwen2.5-7B-Instruct
+load_in_4bit: true
+compute_dtype: float16
+attn_implementation: sdpa
+layer: -1
+pooling: last
+max_length: 512
+device_map: auto

@@ -1,0 +1,49 @@
+{
+  "experiment": "exp5_reasoner_ablation",
+  "generated": "2026-08-01T01:42:54",
+  "title": "Experiment 5 \u2014 Exact checker vs equilibrium residual",
+  "question": "Does the differentiable equilibrium residual separate cases as well as the exact checker (does the energy layer earn its place)?",
+  "config": {
+    "kappa": [
+      2,
+      3,
+      5
+    ],
+    "n_total": [
+      6,
+      12
+    ],
+    "n_per_cell": 50,
+    "seed": 0,
+    "equilibrium_steps": 80
+  },
+  "summary": {
+    "exact_mean_auroc": 1.0,
+    "energy_mean_auroc": 1.0
+  },
+  "tables": {
+    "AUROC by hop-count": [
+      {
+        "hop_count": 2,
+        "n": 200,
+        "exact_auroc": 1.0,
+        "energy_auroc": 1.0
+      },
+      {
+        "hop_count": 3,
+        "n": 200,
+        "exact_auroc": 1.0,
+        "energy_auroc": 1.0
+      },
+      {
+        "hop_count": 5,
+        "n": 200,
+        "exact_auroc": 1.0,
+        "energy_auroc": 1.0
+      }
+    ]
+  },
+  "notes": [
+    "Exact gives the certificate + soundness; the energy gives a differentiable training signal. If energy ties exact here, the energy layer is justified only by its trainability."
+  ]
+}

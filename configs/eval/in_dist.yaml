@@ -1,0 +1,17 @@
+# Default evaluation: in-distribution + held-out paraphrase test sets,
+# scored with matched-AUROC + flag rate + span F1 + relation arg/order metrics.
+test_sets:
+  - name: in_dist
+    source: base
+    split: test
+  - name: held_out_paraphrase
+    source: held_out
+    split: test
+
+targets:
+  in_dist_overall_auroc: 0.94
+  paraphrase_overall_auroc: 0.80
+  paraphrase_temporal_cycle: 0.999
+  paraphrase_comparative_cycle: 0.999
+  paraphrase_numeric_bad_sum: 0.85
+  paraphrase_pairwise: 0.80

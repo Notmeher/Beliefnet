@@ -1,0 +1,36 @@
+# Final synthetic-ladder model (was EEN-v8/v9 composite):
+#   HybridRelationParser type head
+# + SpanGroundedParser entity grounding
+# + regex numeric extractor
+# + direction-aware ordering
+#
+# Pairs with configs/data/synthetic_augmented.yaml for paraphrase-robust training.
+backbone:
+  model_name: Qwen/Qwen2.5-0.5B-Instruct
+  load_in_4bit: false
+  compute_dtype: float16
+  attn_implementation: sdpa
+  layer: -1
+  pooling: last
+  max_length: 512
+  device_map: auto
+
+parser:
+  kind: hybrid
+  mlp_hidden: 256
+  dropout: 0.1
+  temperature_init: 10.0
+  trainable_prototypes: false
+
+span_head:
+  mlp_hidden: 128
+  dropout: 0.1
+
+numeric:
+  kind: regex
+  mlp_hidden: 128
+
+equilibrium_core:
+  n_steps: 50
+  lr_inner: 0.2
+  margin_init: 1.0

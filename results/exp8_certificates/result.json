@@ -1,0 +1,56 @@
+{
+  "experiment": "exp8_certificates",
+  "generated": "2026-07-31T23:29:46",
+  "title": "Experiment 8 \u2014 Certificate quality (unsat core + repair)",
+  "question": "Are the emitted contradiction proofs and repairs valid and minimal?",
+  "config": {
+    "kappa": [
+      2,
+      3,
+      5
+    ],
+    "n_total": [
+      6,
+      12
+    ],
+    "n_per_cell": 30,
+    "seed": 0
+  },
+  "summary": {
+    "n_inconsistent": 180,
+    "valid_core_rate": 1.0,
+    "valid_repair_rate": 1.0
+  },
+  "tables": {
+    "Core / repair sizes by hop-count": [
+      {
+        "hop_count": 2,
+        "n_cases": 60,
+        "mean_core_size": 2.0,
+        "mean_repair_size": 1.0
+      },
+      {
+        "hop_count": 3,
+        "n_cases": 60,
+        "mean_core_size": 3.0,
+        "mean_repair_size": 1.0
+      },
+      {
+        "hop_count": 5,
+        "n_cases": 60,
+        "mean_core_size": 5.0,
+        "mean_repair_size": 1.0
+      }
+    ],
+    "Example certificate": [
+      {
+        "statements": "The patient has held private insurance for years. | The data were recorded in the hospital system. | chemotherapy occurred before discharge. | discharge occurred before diagnosis. | The patient was seen in the outpatient clinic. | diagnosis occurred before chemotherapy.",
+        "unsat_core": "before['discharge', 'diagnosis']; before['diagnosis', 'chemotherapy']; before['chemotherapy', 'discharge']",
+        "repair (retract)": "before['chemotherapy', 'discharge']"
+      }
+    ]
+  },
+  "notes": [
+    "Every flagged contradiction ships with a checkable proof (unsat core) and a minimal repair \u2014 artifacts no score-only detector provides."
+  ]
+}

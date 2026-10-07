@@ -1,0 +1,122 @@
+{
+  "experiment": "exp1_failure_curve",
+  "generated": "2026-08-01T00:10:41",
+  "title": "Experiment 1 \u2014 Emergent-inconsistency failure curve",
+  "question": "Does joint-consistency AUROC collapse as hop-count and statement count grow?",
+  "config": {
+    "kappa": [
+      2,
+      3,
+      5,
+      7
+    ],
+    "n_total": [
+      8,
+      20
+    ],
+    "n_per_cell": 6,
+    "seed": 0,
+    "systems": "oracle,gpt4o,gpt5"
+  },
+  "summary": {
+    "oracle_accuracy": 1.0,
+    "n_cases": 96
+  },
+  "tables": {
+    "AUROC by cell": [
+      {
+        "hop_count": 2,
+        "n_statements": 8,
+        "n": 12,
+        "oracle": 1.0,
+        "gpt4o": 1.0,
+        "gpt5": 1.0
+      },
+      {
+        "hop_count": 2,
+        "n_statements": 20,
+        "n": 12,
+        "oracle": 1.0,
+        "gpt4o": 0.9167,
+        "gpt5": 1.0
+      },
+      {
+        "hop_count": 3,
+        "n_statements": 8,
+        "n": 12,
+        "oracle": 1.0,
+        "gpt4o": 0.8333,
+        "gpt5": 1.0
+      },
+      {
+        "hop_count": 3,
+        "n_statements": 20,
+        "n": 12,
+        "oracle": 1.0,
+        "gpt4o": 0.8472,
+        "gpt5": 1.0
+      },
+      {
+        "hop_count": 5,
+        "n_statements": 8,
+        "n": 12,
+        "oracle": 1.0,
+        "gpt4o": 0.6667,
+        "gpt5": 1.0
+      },
+      {
+        "hop_count": 5,
+        "n_statements": 20,
+        "n": 12,
+        "oracle": 1.0,
+        "gpt4o": 0.6389,
+        "gpt5": 1.0
+      },
+      {
+        "hop_count": 7,
+        "n_statements": 8,
+        "n": 12,
+        "oracle": 1.0,
+        "gpt4o": 0.5833,
+        "gpt5": 1.0
+      },
+      {
+        "hop_count": 7,
+        "n_statements": 20,
+        "n": 12,
+        "oracle": 1.0,
+        "gpt4o": 0.5694,
+        "gpt5": 1.0
+      }
+    ],
+    "Mean AUROC by hop-count": [
+      {
+        "hop_count": 2,
+        "oracle": 1.0,
+        "gpt4o": 0.9757,
+        "gpt5": 1.0
+      },
+      {
+        "hop_count": 3,
+        "oracle": 1.0,
+        "gpt4o": 0.8403,
+        "gpt5": 1.0
+      },
+      {
+        "hop_count": 5,
+        "oracle": 1.0,
+        "gpt4o": 0.6667,
+        "gpt5": 1.0
+      },
+      {
+        "hop_count": 7,
+        "oracle": 1.0,
+        "gpt4o": 0.5868,
+        "gpt5": 1.0
+      }
+    ]
+  },
+  "notes": [
+    "Thesis supported if oracle stays ~1.000 across hop-counts while LLM AUROC declines as hop_count grows (2 -> 3 -> 5)."
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "experiment": "exp1_failure_curve_gpt5_stress",
+  "generated": "2026-08-01T00:31:13",
+  "title": "Experiment 1 \u2014 Emergent-inconsistency failure curve [gpt5_stress]",
+  "question": "Does joint-consistency AUROC collapse as hop-count and statement count grow?",
+  "config": {
+    "kappa": [
+      7,
+      10,
+      13
+    ],
+    "n_total": [
+      50
+    ],
+    "n_per_cell": 8,
+    "seed": 0,
+    "surface": "paraphrase",
+    "systems": "oracle,gpt5"
+  },
+  "summary": {
+    "oracle_accuracy": 1.0,
+    "n_cases": 48
+  },
+  "tables": {
+    "AUROC by cell": [
+      {
+        "hop_count": 7,
+        "n_statements": 50,
+        "n": 16,
+        "oracle": 1.0,
+        "gpt5": 1.0
+      },
+      {
+        "hop_count": 10,
+        "n_statements": 50,
+        "n": 16,
+        "oracle": 1.0,
+        "gpt5": 1.0
+      },
+      {
+        "hop_count": 13,
+        "n_statements": 50,
+        "n": 16,
+        "oracle": 1.0,
+        "gpt5": 1.0
+      }
+    ],
+    "Mean AUROC by hop-count": [
+      {
+        "hop_count": 7,
+        "oracle": 1.0,
+        "gpt5": 1.0
+      },
+      {
+        "hop_count": 10,
+        "oracle": 1.0,
+        "gpt5": 1.0
+      },
+      {
+        "hop_count": 13,
+        "oracle": 1.0,
+        "gpt5": 1.0
+      }
+    ]
+  },
+  "notes": [
+    "Thesis supported if oracle stays ~1.000 across hop-counts while LLM AUROC declines as hop_count grows."
+  ]
+}

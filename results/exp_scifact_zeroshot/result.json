@@ -1,0 +1,52 @@
+{
+  "experiment": "exp_scifact_zeroshot",
+  "generated": "2026-08-01T01:35:08",
+  "title": "Experiment \u2014 SciFact zero-shot (real data)",
+  "question": "On real biomedical claims, how do LLM fact-checkers and BeliefNet's current schema do on CONTRADICT vs SUPPORT?",
+  "config": {
+    "corpus": "data/scifact_dl/data",
+    "n_per_class": 40,
+    "seed": 0,
+    "n_cases": 80
+  },
+  "summary": {
+    "n_cases": 80
+  },
+  "tables": {
+    "CONTRADICT vs SUPPORT (positive=CONTRADICT)": [
+      {
+        "system": "BeliefNet (rule schema)",
+        "auroc": 0.5,
+        "accuracy": 0.5,
+        "f1_contradict": 0.0
+      },
+      {
+        "system": "gpt4o judge",
+        "auroc": 0.9663,
+        "accuracy": 0.9375,
+        "f1_contradict": 0.9367
+      },
+      {
+        "system": "gpt5 judge",
+        "auroc": 0.9884,
+        "accuracy": 0.95,
+        "f1_contradict": 0.95
+      },
+      {
+        "system": "BeliefNet (polarity + gpt4o)",
+        "auroc": 0.8375,
+        "accuracy": 0.8375,
+        "f1_contradict": 0.8116
+      },
+      {
+        "system": "BeliefNet (polarity + gpt5)",
+        "auroc": 0.825,
+        "accuracy": 0.825,
+        "f1_contradict": 0.8
+      }
+    ]
+  },
+  "notes": [
+    "Honest limitation: BeliefNet's before/greater/anchor/sum_eq schema does not cover biomedical semantic contradiction, so it scores near chance -- the perception/schema bottleneck on real text. LLMs do well because SciFact is a pairwise claim-vs-evidence task."
+  ]
+}

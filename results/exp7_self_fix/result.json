@@ -1,0 +1,53 @@
+{
+  "experiment": "exp7_self_fix",
+  "generated": "2026-08-01T00:18:49",
+  "title": "Experiment 7 \u2014 LLM self-fix (decompose + verify)",
+  "question": "Can local LLM extraction + a sound checker recover the emergent inconsistency the same LLM misjudges end-to-end?",
+  "config": {
+    "kappa": [
+      3,
+      5,
+      7
+    ],
+    "n_total": [
+      8
+    ],
+    "n_per_cell": 5,
+    "seed": 0,
+    "systems": "oracle,rule->checker,gpt4o_judge,gpt4o_extract->checker"
+  },
+  "summary": {
+    "n_cases": 30
+  },
+  "tables": {
+    "AUROC by hop-count": [
+      {
+        "hop_count": 3,
+        "n": 10,
+        "oracle": 1.0,
+        "rule->checker": 1.0,
+        "gpt4o_judge": 1.0,
+        "gpt4o_extract->checker": 1.0
+      },
+      {
+        "hop_count": 5,
+        "n": 10,
+        "oracle": 1.0,
+        "rule->checker": 1.0,
+        "gpt4o_judge": 0.8,
+        "gpt4o_extract->checker": 0.9
+      },
+      {
+        "hop_count": 7,
+        "n": 10,
+        "oracle": 1.0,
+        "rule->checker": 1.0,
+        "gpt4o_judge": 0.5,
+        "gpt4o_extract->checker": 0.9
+      }
+    ]
+  },
+  "notes": [
+    "Self-fix holds if <model>_extract->checker stays high while <model>_judge falls as hop_count grows."
+  ]
+}

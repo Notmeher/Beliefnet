@@ -1,0 +1,85 @@
+{
+  "experiment": "exp_numeric_stress_full",
+  "generated": "2026-08-01T18:36:29",
+  "title": "Numeric global-sum stress -- many-term arithmetic consistency",
+  "question": "Does LLM joint-consistency AUROC collapse as the number of numeric terms (depth) grows, while the exact checker stays perfect?",
+  "config": {
+    "depths": [
+      5,
+      12,
+      20,
+      28,
+      36
+    ],
+    "n_distract": 2,
+    "n_per_cell": 15,
+    "seed": 0,
+    "systems": "oracle,gpt4o,gpt5"
+  },
+  "summary": {
+    "oracle_accuracy": 1.0,
+    "n_cases": 150
+  },
+  "tables": {
+    "AUROC by depth": [
+      {
+        "depth": 5,
+        "n": 30,
+        "oracle": 1.0,
+        "gpt4o": 0.58,
+        "gpt5": 1.0
+      },
+      {
+        "depth": 12,
+        "n": 30,
+        "oracle": 1.0,
+        "gpt4o": 0.5244,
+        "gpt5": 1.0
+      },
+      {
+        "depth": 20,
+        "n": 30,
+        "oracle": 1.0,
+        "gpt4o": 0.4889,
+        "gpt5": 0.8667
+      },
+      {
+        "depth": 28,
+        "n": 30,
+        "oracle": 1.0,
+        "gpt4o": 0.4889,
+        "gpt5": 0.48
+      },
+      {
+        "depth": 36,
+        "n": 30,
+        "oracle": 1.0,
+        "gpt4o": 0.6422,
+        "gpt5": 0.2333
+      }
+    ],
+    "Overall AUROC (95% CI)": [
+      {
+        "system": "oracle",
+        "overall_auroc": 1.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0
+      },
+      {
+        "system": "gpt4o",
+        "overall_auroc": 0.5429,
+        "ci95_low": 0.4655,
+        "ci95_high": 0.6207
+      },
+      {
+        "system": "gpt5",
+        "overall_auroc": 0.679,
+        "ci95_low": 0.5784,
+        "ci95_high": 0.7787
+      }
+    ]
+  },
+  "notes": [
+    "Emergent: no pair of statements conflicts; only the global sum reveals inconsistency. A* signal if LLM AUROC declines with depth while the oracle stays 1.000."
+  ]
+}

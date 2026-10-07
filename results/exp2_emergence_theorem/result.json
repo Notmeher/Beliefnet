@@ -1,0 +1,56 @@
+{
+  "experiment": "exp2_emergence_theorem",
+  "generated": "2026-07-31T23:29:45",
+  "title": "Experiment 2 \u2014 Emergence separation (theorem, verified)",
+  "question": "Do emergent (kappa >= 3) inconsistencies have no witness of size < kappa, so pairwise judges must miss them?",
+  "config": {
+    "kappa": [
+      2,
+      3,
+      5
+    ],
+    "n_total": [
+      6,
+      12
+    ],
+    "n_per_cell": 50,
+    "seed": 0
+  },
+  "summary": {
+    "n_inconsistent": 300,
+    "min_core_equals_kappa_rate": 1.0,
+    "emergent_fraction(kappa>=3)": 0.6667,
+    "pairwise_miss_rate_on_emergent": 1.0
+  },
+  "tables": {
+    "Minimal unsat-core size by hop-count": [
+      {
+        "hop_count": 2,
+        "n_cases": 100,
+        "mean_min_core_size": 2.0,
+        "core_size==kappa_rate": 1.0,
+        "pairwise_detectable_rate": 1.0,
+        "pairwise_miss_rate": 0.0
+      },
+      {
+        "hop_count": 3,
+        "n_cases": 100,
+        "mean_min_core_size": 3.0,
+        "core_size==kappa_rate": 1.0,
+        "pairwise_detectable_rate": 0.0,
+        "pairwise_miss_rate": 1.0
+      },
+      {
+        "hop_count": 5,
+        "n_cases": 100,
+        "mean_min_core_size": 5.0,
+        "core_size==kappa_rate": 1.0,
+        "pairwise_detectable_rate": 0.0,
+        "pairwise_miss_rate": 1.0
+      }
+    ]
+  },
+  "notes": [
+    "core_size == kappa for every inconsistent case: the whole cycle is the smallest conflict, so no pairwise witness exists for kappa >= 3."
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "experiment": "exp_human_study_d40",
+  "generated": "2026-08-01T18:49:28",
+  "title": "Human study (proxy reviewer = Claude Haiku)",
+  "question": "Does a sound certificate help a reviewer verify hard numeric consistency more than an LLM free-text rationale?",
+  "config": {
+    "depth": 40,
+    "n_cases": 30,
+    "seed": 0,
+    "reviewer_model": "claude-haiku-4-5"
+  },
+  "summary": {
+    "n_cases": 30
+  },
+  "tables": {
+    "Reviewer accuracy by aid condition": [
+      {
+        "condition": "reviewer_alone",
+        "reviewer_accuracy": 0.5,
+        "kappa_vs_truth": 0.0
+      },
+      {
+        "condition": "reviewer_+_certificate",
+        "reviewer_accuracy": 1.0,
+        "kappa_vs_truth": 1.0
+      },
+      {
+        "condition": "reviewer_+_LLM_rationale",
+        "reviewer_accuracy": 0.5,
+        "kappa_vs_truth": 0.0
+      },
+      {
+        "condition": "(ref) GPT-4o assistant alone",
+        "reviewer_accuracy": 0.4333,
+        "kappa_vs_truth": -0.1333
+      }
+    ]
+  },
+  "notes": [
+    "The certificate is a checkable arithmetic proof; the rationale propagates the assistant's arithmetic errors. Higher accuracy under certificate = measured auditability benefit."
+  ]
+}

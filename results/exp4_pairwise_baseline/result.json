@@ -1,0 +1,61 @@
+{
+  "experiment": "exp4_pairwise_baseline",
+  "generated": "2026-07-31T23:29:48",
+  "title": "Experiment 4 \u2014 Pairwise baseline vs emergent inconsistency",
+  "question": "Does an all-pairs (pairwise-factored) judge miss emergent (kappa >= 3) contradictions, as the theorem predicts?",
+  "config": {
+    "kappa": [
+      2,
+      3,
+      5
+    ],
+    "n_total": [
+      6,
+      12
+    ],
+    "n_per_cell": 50,
+    "seed": 0
+  },
+  "summary": {
+    "n_cases": 600
+  },
+  "tables": {
+    "AUROC by hop-count": [
+      {
+        "hop_count": 2,
+        "n": 200,
+        "oracle_auroc": 1.0,
+        "all_pairs_symbolic_auroc": 1.0
+      },
+      {
+        "hop_count": 3,
+        "n": 200,
+        "oracle_auroc": 1.0,
+        "all_pairs_symbolic_auroc": 0.5
+      },
+      {
+        "hop_count": 5,
+        "n": 200,
+        "oracle_auroc": 1.0,
+        "all_pairs_symbolic_auroc": 0.5
+      }
+    ],
+    "Overall AUROC with 95% bootstrap CI": [
+      {
+        "system": "oracle",
+        "overall_auroc": 1.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0
+      },
+      {
+        "system": "all_pairs_symbolic",
+        "overall_auroc": 0.6666,
+        "ci95_low": 0.6397,
+        "ci95_high": 0.6941
+      }
+    ]
+  },
+  "notes": [
+    "all_pairs_symbolic should be ~1.0 at kappa=2 and ~0.5 (chance) at kappa>=3 -- the empirical separation result."
+  ]
+}

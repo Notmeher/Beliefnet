@@ -1,0 +1,125 @@
+# Inventory of `een.*` imports - captured at Stage 0 of the BeliefNet refactor.
+# Format: file:line:statement
+# This is the cross-check we will use during Stages 2-6 to verify no import is
+# left behind.
+#
+# Sources scanned: all *.py files under . (project root)
+# Captured: 2026-05-29 (Stage 0 pre-flight)
+# Total `from een...` statements: 89
+
+## src/een/ (internal cross-imports - 22 statements)
+src/een/__init__.py:                            (none; just package marker)
+src/een/backbone/__init__.py:1                  from een.backbone.loader import BackboneConfig, FrozenBackbone, pool_hidden
+src/een/baselines/__init__.py:1                 from een.baselines.probe import MLPProbe
+src/een/baselines/__init__.py:2                 from een.baselines.set_baselines import AllPairsClassifier, MeanPoolClassifier
+src/een/data/__init__.py:1                      from een.data.base import (...)
+src/een/data/__init__.py:10                     from een.data.synthetic import SyntheticConfig, generate, surface_jaccard
+src/een/data/features.py:17                     from een.backbone import FrozenBackbone
+src/een/data/features.py:18                     from een.data.base import Example
+src/een/data/multistmt.py:29                    from een.data.synthetic import DIAGNOSES, DRUGS, SYMPTOMS
+src/een/data/multistmt_ood.py:21                from een.data.multistmt import (...)
+src/een/data/perception_labels.py:29            from een.data.multistmt import (...)
+src/een/data/perception_labels.py:36            from een.data.synthetic import DIAGNOSES, DRUGS, SYMPTOMS
+src/een/data/synthetic.py:19                    from een.data.base import Example
+src/een/eval/__init__.py:1                      from een.eval.metrics import (...)
+src/een/eval/consistency_eval.py:16             from een.data.features import encode_texts
+src/een/eval/consistency_eval.py:17             from een.data.multistmt import Case
+src/een/eval/consistency_eval.py:18             from een.eval.metrics import accuracy, auroc, binary_f1
+src/een/eval/structured_eval.py:15              from een.data.multistmt import Case
+src/een/eval/structured_eval.py:16              from een.eval.metrics import accuracy, auroc, binary_f1
+src/een/model/__init__.py:1                     from een.model.een_consistency import EENConsistency
+src/een/model/__init__.py:2                     from een.model.een_v2_structured import EENv2Structured
+src/een/model/constraint_assembler.py:16        from een.data.multistmt import DIAGNOSIS_CODES
+src/een/model/een_v2_structured.py:24           from een.eval.structured_eval import BatchSpec
+src/een/model/hybrid_perception.py:30           from een.data.perception_labels import (...)
+src/een/model/perception.py:18                  from een.data.perception_labels import (...)
+src/een/model/prototype_perception.py:28        from een.data.perception_labels import (...)
+src/een/model/span_tagger.py:19                 from een.data.perception_labels import N_BIO_TAGS, decode_bio_spans
+src/een/utils/__init__.py:1                     from een.utils.seed import set_seed
+
+## tests/ (12 statements across 7 files)
+tests/test_backbone.py:3                        from een.backbone import BackboneConfig, pool_hidden
+tests/test_een_consistency.py:3                 from een.baselines import AllPairsClassifier
+tests/test_een_consistency.py:4                 from een.model import EENConsistency
+tests/test_een_v2.py:3                          from een.data.multistmt import Case
+tests/test_een_v2.py:4                          from een.eval.structured_eval import build_batch_spec
+tests/test_een_v2.py:5                          from een.model import EENv2Structured
+tests/test_metrics.py:3                         from een.eval.metrics import (...)
+tests/test_multistmt.py:3                       from een.data.multistmt import (...)
+tests/test_perception.py:3                      from een.data.multistmt import MultiStmtConfig, generate
+tests/test_perception.py:4                      from een.data.perception_labels import derive_supervision
+tests/test_perception.py:5                      from een.model.constraint_assembler import assemble_constraints
+tests/test_perception.py:6                      from een.model.perception import PerceptionModule
+tests/test_synthetic.py:1                       from een.data import LABELS, SyntheticConfig, generate
+tests/test_synthetic.py:2                       from een.data.base import CONTRADICTION_TYPES
+tests/test_synthetic.py:3                       from een.data.synthetic import difficulty_for, surface_jaccard
+
+## scripts/ (55 statements across 16 files - largest concentration)
+# Listed below by file, in numerical order:
+
+scripts/analyze_similarity.py:20-24             een.backbone, een.data.base, een.data.features, een.eval.metrics, een.utils
+scripts/build_multistmt.py:11                   een.data.multistmt
+scripts/build_synthetic.py:11                   een.data
+scripts/smoke_backbone.py:17,18                 een.backbone, een.utils
+scripts/symbolic_oracle.py:20,21                een.data.multistmt, een.eval.structured_eval
+scripts/train_baseline.py:23-35                 een.backbone, een.baselines, een.data.base, een.data.features, een.eval.metrics, een.utils
+scripts/train_een_consistency.py:18-28          een.backbone, een.data.multistmt, een.eval.consistency_eval, een.model, een.utils
+scripts/train_een_v2.py:21-25                   een.data.multistmt, een.eval.metrics, een.eval.structured_eval, een.model, een.utils
+scripts/train_een_v3.py:26-40                   een.backbone, een.data.multistmt, een.data.perception_labels, een.eval.consistency_eval,
+                                                een.eval.metrics, een.eval.structured_eval, een.model, een.model.constraint_assembler,
+                                                een.model.perception, een.utils
+scripts/train_een_v4.py:32-54                   een.backbone, een.data.features, een.data.multistmt, een.data.multistmt_ood,
+                                                een.data.perception_labels, een.eval.metrics, een.eval.structured_eval, een.model,
+                                                een.model.constraint_assembler, een.model.perception, een.utils
+scripts/train_een_v5.py:38-68                   een.backbone, een.data.features, een.data.multistmt, een.data.multistmt_ood,
+                                                een.data.perception_labels, een.eval.metrics, een.eval.structured_eval, een.model,
+                                                een.model.constraint_assembler, een.model.numeric_extractors, een.model.perception, een.utils
+scripts/train_een_v6.py:34-63                   een.backbone, een.data.features, een.data.multistmt, een.data.multistmt_ood,
+                                                een.data.perception_labels, een.data.relation_prototypes, een.eval.metrics,
+                                                een.eval.structured_eval, een.model, een.model.constraint_assembler,
+                                                een.model.numeric_extractors, een.model.perception, een.model.prototype_perception, een.utils
+scripts/train_een_v7.py:29-58                   een.backbone, een.data.features, een.data.multistmt, een.data.multistmt_ood,
+                                                een.data.perception_labels, een.data.relation_prototypes, een.eval.metrics,
+                                                een.eval.structured_eval, een.model, een.model.constraint_assembler,
+                                                een.model.hybrid_perception, een.model.numeric_extractors, een.model.perception,
+                                                een.model.prototype_perception, een.utils
+scripts/train_een_v8.py:40-87                   een.backbone, een.data.features, een.data.multistmt, een.data.multistmt_ood,
+                                                een.data.perception_labels, een.data.relation_prototypes, een.eval.metrics,
+                                                een.eval.structured_eval, een.model, een.model.constraint_assembler,
+                                                een.model.hybrid_perception, een.model.numeric_extractors, een.model.perception,
+                                                een.model.span_tagger, een.utils
+scripts/train_een_v9.py:41-83                   same modules as v8 (no new dependencies)
+scripts/train_set_baseline.py:18-28             een.backbone, een.baselines, een.data.multistmt, een.eval.consistency_eval, een.utils
+
+## Modules referenced (unique top-level paths, useful for shim placement)
+een.__init__
+een.backbone
+een.backbone.loader
+een.baselines
+een.baselines.probe
+een.baselines.set_baselines
+een.data
+een.data.base
+een.data.features
+een.data.multistmt
+een.data.multistmt_ood
+een.data.perception_labels
+een.data.relation_prototypes
+een.data.synthetic
+een.eval
+een.eval.consistency_eval
+een.eval.metrics
+een.eval.structured_eval
+een.model
+een.model.constraint_assembler
+een.model.een_consistency
+een.model.een_v2_structured
+een.model.hybrid_perception
+een.model.numeric_extractors
+een.model.perception
+een.model.prototype_perception
+een.model.span_tagger
+een.utils
+een.utils.seed
+
+## Total: 89 import statements across 26 unique target modules in 38 files.

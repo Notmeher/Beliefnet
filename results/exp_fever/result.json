@@ -1,0 +1,53 @@
+{
+  "experiment": "exp_fever",
+  "generated": "2026-08-01T19:10:39",
+  "title": "Real-data #2 -- FEVER (claim + gold evidence)",
+  "question": "Does the SciFact picture replicate on a second real dataset (FEVER): LLMs strong, base schema chance, polarity lifts it?",
+  "config": {
+    "dataset": "copenlu/fever_gold_evidence",
+    "split": "validation",
+    "n_per_class": 40,
+    "seed": 0,
+    "n_cases": 80
+  },
+  "summary": {
+    "n_cases": 80
+  },
+  "tables": {
+    "REFUTES vs SUPPORTS (positive=REFUTES)": [
+      {
+        "system": "BeliefNet (rule schema)",
+        "auroc": 0.5,
+        "accuracy": 0.5,
+        "f1_refute": 0.0
+      },
+      {
+        "system": "gpt4o judge",
+        "auroc": 0.9809,
+        "accuracy": 0.9625,
+        "f1_refute": 0.963
+      },
+      {
+        "system": "BeliefNet (polarity + gpt4o)",
+        "auroc": 0.775,
+        "accuracy": 0.775,
+        "f1_refute": 0.7188
+      },
+      {
+        "system": "gpt5 judge",
+        "auroc": 0.9825,
+        "accuracy": 0.9625,
+        "f1_refute": 0.962
+      },
+      {
+        "system": "BeliefNet (polarity + gpt5)",
+        "auroc": 0.8875,
+        "accuracy": 0.8875,
+        "f1_refute": 0.8767
+      }
+    ]
+  },
+  "notes": [
+    "Second real dataset for external validity; same protocol as SciFact."
+  ]
+}

@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "beliefnet"
+version = "0.0.1"
+description = "BeliefNet: learning structured belief graphs with epistemic equilibrium reasoning."
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.1",
+    "transformers>=4.44",
+    "accelerate>=0.30",
+    "bitsandbytes>=0.43",
+    "peft>=0.11",
+    "pyyaml>=6.0",
+    "numpy",
+    "scikit-learn",
+    "datasets",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+llm = ["openai>=1.40"]
+viz = ["matplotlib>=3.7"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

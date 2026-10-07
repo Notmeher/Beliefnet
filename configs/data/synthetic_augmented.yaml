@@ -1,0 +1,21 @@
+# Final synthetic-ladder data recipe (matches EEN-v9):
+#   base canonical -> StructuredEquilibriumCore (held frozen);
+#   AUGMENTED templates -> perception + span heads (paraphrase coverage);
+#   HELD_OUT templates -> evaluation only (genuine paraphrase generalization).
+n_per_subtype: 200
+seed: 0
+ratios: [0.7, 0.15, 0.15]
+
+base:
+  templates: canonical
+  id_prefix: case
+
+augmented:
+  templates: augmented
+  id_prefix: aug
+  seed_offset: 1
+
+held_out:
+  templates: held_out
+  id_prefix: paraphrase
+  seed_offset: 2
